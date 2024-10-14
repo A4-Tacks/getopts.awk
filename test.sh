@@ -90,6 +90,24 @@ required file=out
 read options finish
 EOF
 
+run_test 0 -d -d -fout x y << EOF
+enable debug
+enable debug
+required file=out
+read options finish
+pos arg: x
+pos arg: y
+EOF
+
+run_test 0 -d -d -f out x y << EOF
+enable debug
+enable debug
+required file=out
+read options finish
+pos arg: x
+pos arg: y
+EOF
+
 run_test 0 -d -d -f '' << EOF
 enable debug
 enable debug
