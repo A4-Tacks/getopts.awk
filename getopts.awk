@@ -36,7 +36,7 @@ function getopts(optstring, argc, argv,     k, opt, opts) {
 
             if (opts ~ /.:/) {
                 if (OPTRES) { OPTARG = OPTRES; OPTRES = ""; return opt }
-                if (OPTIND == argc) { return ":" }
+                if (OPTIND == argc) { OPTARG = opt; return ":" }
 
                 OPTARG = argv[OPTIND++]
             }
