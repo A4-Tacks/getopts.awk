@@ -1,18 +1,26 @@
 #!/usr/bin/awk -f
 
+# Usage
+#
+# getopts(optstring [, argc [, argv]])
+#
 ###############################################################################
+#
 # States
 #
 # OPTIND is parse start index
 # OPTARG is option value
 # OPTRES rest options
+#
 ###############################################################################
+#
 # Return values
 #
 # "--" is argc[OPTIND] until argc[argv-1] is position args
 # "?" is a unknown option, OPTARG stores this option
 # ":" expected a value, but cannot be found, OPTARG stores this option
 # other string is a option, the option value comes from OPTARG
+#
 function getopts(optstring, argc, argv,     k, opt, opts) {
     if (typeof(argc) == "untyped") argc = ARGC;
     if (typeof(argv) == "untyped") for (k in ARGV) argv[k] = ARGV[k];
