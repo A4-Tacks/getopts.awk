@@ -18,7 +18,7 @@ function getopts(optstring, argc, argv,     k, opt, opts) {
     if (typeof(argv) == "untyped") for (k in ARGV) argv[k] = ARGV[k];
     if (typeof(OPTIND) == "untyped") OPTIND = 1;
 
-    while (OPTIND < argc) {
+    while (OPTIND < argc || OPTRES) {
         if (!OPTRES) {
             if (argv[OPTIND] == "--") { OPTIND++; break }
             if (argv[OPTIND] !~ /^-./) { break }
